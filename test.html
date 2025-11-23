@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GSAP Stacked Cards Scroll</title>
+
+    <!-- GSAP + ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fafafa;
+      }
+
+      #go-beyond {
+        position: relative;
+        width: 100%;
+        padding-top: 100px;
+      }
+
+      #go-beyond-move {
+        width: 1110px;
+        max-width: calc(100% - 30px);
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .move-cards {
+        position: relative;
+        width: 100%;
+        height: 600px;
+      }
+
+      .move-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 450px;
+        border-radius: 32px;
+        padding: 40px;
+        box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(100vh);
+      }
+
+      .move-card--1 {
+        background: #fffcdc;
+        color: #ffd92c;
+        opacity: 1;
+        transform: none;
+      }
+      .move-card--2 {
+        background: #cef2ff;
+        color: #019ace;
+      }
+      .move-card--3 {
+        background: #ffeef5;
+        color: #ff619f;
+      }
+      .move-card--4 {
+        background: #d0fbf0;
+        color: #0dd4a1;
+      }
+
+      .move-card__num p {
+        font-size: 180px;
+        margin: 0;
+        line-height: 0.8;
+      }
+
+      .move-card__text p {
+        margin-top: 20px;
+        font-size: 28px;
+        line-height: 1.4;
+      }
+
+      .until-now {
+        text-align: center;
+        opacity: 0;
+        margin-top: 200px;
+        font-size: 48px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="go-beyond">
+      <div id="go-beyond-move">
+        <h2 style="font-size: 48px; margin-bottom: 50px">
+          Go Beyond Disconnected Clicks
+        </h2>
+
+        <div class="move-cards">
+          <div class="move-card move-card--1">
+            <div class="move-card__num"><p>01</p></div>
+            <div class="move-card__text">
+              <p>Your interactions with a brand often feel fragmented.</p>
+            </div>
+          </div>
+
+          <div class="move-card move-card--2">
+            <div class="move-card__num"><p>02</p></div>
+            <div class="move-card__text">
+              <p>Search fails to understand how you talk.</p>
+            </div>
+          </div>
+
+          <div class="move-card move-card--3">
+            <div class="move-card__num"><p>03</p></div>
+            <div class="move-card__text">
+              <p>Ads chase you for products you already own.</p>
+            </div>
+          </div>
+
+          <div class="move-card move-card--4">
+            <div class="move-card__num"><p>04</p></div>
+            <div class="move-card__text">
+              <p>True personalization has been elusive.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="until-now">Until now.</div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const cards = gsap.utils.toArray(".move-card");
+        const title = document.querySelector(".until-now");
+
+        // Set initial states
+        gsap.set(cards, {
+          zIndex: (i) => cards.length - i,
+          opacity: (i) => (i === 0 ? 1 : 0),
+          y: (i) => (i === 0 ? 0 : "100vh"),
+          scale: 1,
+        });
+
+        // Timeline
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#go-beyond",
+            start: "top top",
+            end: "+=400%",
+            scrub: true,
+            pin: "#go-beyond-move",
+          },
+        });
+
+        // CARD 2
+        tl.to(
+          cards[1],
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+          },
+          0.2
+        ).to(
+          cards[0],
+          {
+            scale: 0.2,
+            y: "-40%",
+            opacity: 0.3,
+            duration: 1,
+          },
+          0.2
+        );
+
+        // CARD 3
+        tl.to(
+          cards[2],
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+          },
+          1
+        ).to(
+          cards[1],
+          {
+            scale: 0.2,
+            y: "-40%",
+            opacity: 0.3,
+            duration: 1,
+          },
+          1
+        );
+
+        // CARD 4
+        tl.to(
+          cards[3],
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+          },
+          2
+        ).to(
+          cards[2],
+          {
+            scale: 0.2,
+            y: "-40%",
+            opacity: 0.3,
+            duration: 1,
+          },
+          2
+        );
+
+        // Until now
+        tl.to(
+          title,
+          {
+            opacity: 1,
+            duration: 1,
+          },
+          3
+        );
+      });
+    </script>
+  </body>
+</html>
