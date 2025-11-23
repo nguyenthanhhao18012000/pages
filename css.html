@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stack Scroll Fade</title>
+    <style>
+        /* Start custom CSS for container, class: .elementor-element-3afeb15e */
+        #go-beyond-move {
+            width: 1110px;
+            max-width: calc(100% - 30px);
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+        }
+
+        #go-beyond-move.fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        #go-beyond-move.end {
+            position: absolute;
+            bottom: 0;
+        }
+
+
+        #go-beyond-move.fixed {
+            position: fixed;
+            width: 1110px;
+            top: 0;
+        }
+
+        #go-beyond-move.end {
+            position: absolute;
+            width: 1110px;
+            bottom: 0;
+        }
+
+        @media (max-width: 1140px) {
+            #go-beyond-move.fixed {
+                width: calc(100% - 30px);
+            }
+
+            #go-beyond-move.end {
+                width: calc(100% - 30px);
+            }
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            aspect-ratio: 1110/460;
+            min-height: auto !important;
+            box-sizing: border-box;
+            background: #f00;
+            border-radius: 32px;
+            padding: 40px;
+            transition: transform 300ms ease-out, opacity 300ms ease-out;
+        }
+
+        @media (max-height: 1100px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+                aspect-ratio: 1110/380;
+            }
+        }
+
+        @media (max-height: 960px) {
+            #go-beyond-title h2 span {
+                font-size: 1.1em;
+            }
+
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+                aspect-ratio: 1110/360;
+            }
+        }
+
+        @media (max-height: 800px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+                aspect-ratio: 1110/300;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+                aspect-ratio: 4/3;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+                aspect-ratio: 1/1;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card {
+                padding: 30px;
+                aspect-ratio: 5/4;
+            }
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card--1 {
+            position: static;
+            color: #FFD92C;
+            background: #FFFCDC;
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card--2 {
+            top: 20%;
+            color: #019ACE;
+            background: #CEF2FF;
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card--3 {
+            top: 40%;
+            color: #FF619F;
+            background: #FFEEF5;
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card--4 {
+            top: 60%;
+            color: #0DD4A1;
+            background: #D0FBF0;
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__num p {
+            font-size: 300px;
+            line-height: .8;
+            transition: transform 300ms ease-out;
+            transform-origin: 0 0;
+        }
+
+        @media (max-height: 960px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__num p {
+                font-size: 240px;
+            }
+        }
+
+        @media (max-width: 1140px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__num p {
+                font-size: 240px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__num p {
+                font-size: 180px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__num p {
+                font-size: 140px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__num p {
+                font-size: 100px;
+            }
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__text p {
+            color: #000;
+            font-size: 36px;
+            line-height: 1.25;
+            transition: opacity 300ms ease-out;
+        }
+
+        @media (max-height: 960px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__text p {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__text p {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__text p {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__text p {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card__text p {
+                font-size: 18px;
+            }
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card--back .move-card__num p {
+            transform: scale(.2) translateY(-40%);
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .move-card--back .move-card__text p {
+            opacity: 0;
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .card-hide {
+            opacity: 0;
+            transform: translateY(100vh);
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+            pointer-events: none;
+            padding: 300px 0 100px;
+            transition: opacity 600ms ease-out;
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now h2 {
+            color: #000;
+        }
+
+        @media (max-height: 1100px) and (min-width: 1140px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+                padding-top: 240px;
+            }
+        }
+
+        @media (max-height: 800px) and (min-width: 1140px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+                padding-top: 180px;
+            }
+        }
+
+        @media (max-width: 1140px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+                padding-top: 220px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+                padding-top: 45vw;
+                padding-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+                padding-top: 55vw;
+                padding-bottom: 60px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-now {
+                padding-top: 45vw;
+            }
+        }
+
+        .elementor-62626 .elementor-element.elementor-element-3afeb15e .until-hide {
+            opacity: 0;
+        }
+
+        /* End custom CSS */
+    </style>
+
+    <style>
+        :root {
+            --padding-block-end: initial;
+            --align-items: center;
+            --flex-wrap: initial;
+            --justify-content: flex-start;
+            --flex-direction: column;
+            --row-gap: 60px;
+            --column-gap: 60px;
+            --content-width: min(100%, 1110px);
+            --padding-block-end: 190px;
+            --padding-block-start: 0px;
+            --text-align: initial;
+        }
+
+        .elementor-heading-title {
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .e-con>.e-con-inner {
+            gap: var(--row-gap) var(--column-gap);
+            height: 100%;
+            margin: 0 auto;
+            max-width: var(--content-width);
+            padding-inline-end: 0;
+            padding-inline-start: 0;
+            width: 100%;
+        }
+
+        .e-con.e-flex>.e-con-inner {
+            align-content: var(--align-content);
+            align-items: var(--align-items);
+            align-self: auto;
+            flex-basis: auto;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-wrap: var(--flex-wrap);
+            justify-content: var(--justify-content);
+        }
+    </style>
+</head>
+
+<body>
+    <div data-elementor-type="wp-page" data-elementor-id="62626" class="elementor elementor-62626"
+        data-elementor-post-type="page">
+
+        <div class="elementor-element elementor-element-3afeb15e pad80 e-flex e-con-boxed e-con e-parent e-lazyloaded"
+            data-id="3afeb15e" data-element_type="container" id="go-beyond"
+            data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" style="min-height: 4075px;">
+            <div class="e-con-inner">
+                <div class="elementor-element elementor-element-5b951f1f e-con-full e-flex e-con e-child fixed"
+                    data-id="5b951f1f" data-element_type="container" id="go-beyond-move">
+                    <div class="elementor-element elementor-element-5676e97f elementor-widget__width-initial elementor-widget elementor-widget-heading"
+                        data-id="5676e97f" data-element_type="widget" id="go-beyond-title"
+                        data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                            <h2 class="elementor-heading-title elementor-size-default"><span>Go Beyond Disconnected
+                                    Clicks</span></h2>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-3469e6eb e-con-full move-cards e-flex e-con e-child"
+                        data-id="3469e6eb" data-element_type="container">
+                        <div class="elementor-element elementor-element-346a4c03 e-con-full move-card move-card--1 e-flex e-con e-child"
+                            data-id="346a4c03" data-element_type="container">
+                            <div class="elementor-element elementor-element-1ef059c0 move-card__num elementor-widget elementor-widget-heading"
+                                data-id="1ef059c0" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <p class="elementor-heading-title elementor-size-default">01</p>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-420f7b9b e-con-full e-flex e-con e-child"
+                                data-id="420f7b9b" data-element_type="container">
+                                <div class="elementor-element elementor-element-1fc35997 move-card__text elementor-widget elementor-widget-heading"
+                                    data-id="1fc35997" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <p class="elementor-heading-title elementor-size-default">⁠Your interactions
+                                            with a brand often feel fragmented.
+                                            <br><br>
+                                            A personalized email leads to a generic site.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-5b270fa4 e-con-full move-card move-card--2 card-hide e-flex e-con e-child"
+                            data-id="5b270fa4" data-element_type="container"
+                            style="opacity: 0.2775; transform: translateY(72.25vh);">
+                            <div class="elementor-element elementor-element-1e7f8b7d move-card__num elementor-widget elementor-widget-heading"
+                                data-id="1e7f8b7d" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <p class="elementor-heading-title elementor-size-default">02</p>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-b45bc98 e-con-full e-flex e-con e-child"
+                                data-id="b45bc98" data-element_type="container">
+                                <div class="elementor-element elementor-element-44bbee27 move-card__text elementor-widget elementor-widget-heading"
+                                    data-id="44bbee27" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <p class="elementor-heading-title elementor-size-default">Search fails to
+                                            understand how you&nbsp;talk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-3897f95d e-con-full move-card move-card--3 card-hide e-flex e-con e-child"
+                            data-id="3897f95d" data-element_type="container"
+                            style="opacity: 0; transform: translateY(100vh);">
+                            <div class="elementor-element elementor-element-66dff1b0 move-card__num elementor-widget elementor-widget-heading"
+                                data-id="66dff1b0" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <p class="elementor-heading-title elementor-size-default">03</p>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-58bc68fb e-con-full e-flex e-con e-child"
+                                data-id="58bc68fb" data-element_type="container">
+                                <div class="elementor-element elementor-element-534963de move-card__text elementor-widget elementor-widget-heading"
+                                    data-id="534963de" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <p class="elementor-heading-title elementor-size-default">Ads chase you for
+                                            products you already own.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-7d215980 e-con-full move-card move-card--4 card-hide e-flex e-con e-child"
+                            data-id="7d215980" data-element_type="container"
+                            style="opacity: 0; transform: translateY(100vh);">
+                            <div class="elementor-element elementor-element-48de6f2 move-card__num elementor-widget elementor-widget-heading"
+                                data-id="48de6f2" data-element_type="widget" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                    <p class="elementor-heading-title elementor-size-default">04</p>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-355c6686 e-con-full e-flex e-con e-child"
+                                data-id="355c6686" data-element_type="container">
+                                <div class="elementor-element elementor-element-695eb8b move-card__text elementor-widget elementor-widget-heading"
+                                    data-id="695eb8b" data-element_type="widget" data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <p class="elementor-heading-title elementor-size-default">True personalization –
+                                            understanding and adapting to someone instantly – has been elusive.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-6a950259 elementor-widget__width-initial until-now until-hide elementor-widget elementor-widget-heading"
+                        data-id="6a950259" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                            <h2 class="elementor-heading-title elementor-size-default">Until now.</h2>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-2a098f7a elementor-widget elementor-widget-html"
+                        data-id="2a098f7a" data-element_type="widget" data-widget_type="html.default">
+                        <div class="elementor-widget-container">
+                            <div>&nbsp;</div>
+
+                            <script>
+                                document.addEventListener("DOMContentLoaded", (event) => {
+                                    let paddingTop = parseInt(window.getComputedStyle(document.querySelector('#go-beyond > .e-con-inner')).paddingTop);
+                                    let goBeyond = document.querySelector('#go-beyond');
+                                    let goBeyondMove = document.querySelector('#go-beyond-move');
+                                    let goBeyondMoveHeight = goBeyondMove.offsetHeight;
+                                    goBeyond.style.minHeight = (goBeyondMoveHeight * 5) + 'px';
+                                    let goBeyondHeight = goBeyond.offsetHeight;
+                                    let animStart = Math.round(goBeyond.getBoundingClientRect().top + window.pageYOffset);
+                                    let animEnd = Math.round(goBeyond.getBoundingClientRect().bottom + window.pageYOffset);
+                                    let goBeyondMoveStart = Math.round(goBeyondMove.getBoundingClientRect().top + window.pageYOffset);
+                                    let fixTop = goBeyondMoveStart - animStart;
+                                    let windowHeight = window.innerHeight;
+                                    let animPercentage = 0;
+                                    let animPercentageC2 = 0;
+                                    let animPercentageC3 = 0;
+                                    let animPercentageC4 = 0;
+                                    let card1 = document.querySelector('.move-card--1');
+                                    let card2 = document.querySelector('.move-card--2');
+                                    let card3 = document.querySelector('.move-card--3');
+                                    let card4 = document.querySelector('.move-card--4');
+                                    let untilNow = document.querySelector('.until-now');
+
+                                    function cardsAnim() {
+                                        let userStart = window.pageYOffset;
+                                        let userEnd = window.pageYOffset + goBeyondMoveHeight + paddingTop;
+
+                                        if (userStart < animStart) {
+                                            // before anim
+                                            animPercentage = 0;
+                                            animPercentageC2 = 0;
+                                            animPercentageC3 = 0;
+                                            animPercentageC4 = 0;
+                                            goBeyondMove.classList.remove('fixed');
+                                            goBeyondMove.classList.remove('end');
+                                        } else if (userStart > animStart && userEnd < animEnd) {
+                                            // while anim
+                                            animPercentage = Math.round(((userStart - animStart) / ((animEnd - goBeyondMoveHeight - paddingTop) - animStart)) * 10000) / 100;
+                                            goBeyondMove.classList.remove('end');
+                                            goBeyondMove.classList.add('fixed');
+                                            if (animPercentage > 0 && animPercentage < 20) {
+                                                card1.classList.remove('move-card--back');
+                                                animPercentageC2 = animPercentage * 5;
+                                            } else if (animPercentage > 20) {
+                                                animPercentageC2 = 100;
+                                            } else {
+                                                animPercentageC2 = 0;
+                                            }
+                                            if (animPercentage > 20 && animPercentage < 40) {
+                                                card1.classList.add('move-card--back');
+                                                card2.classList.remove('move-card--back');
+                                                animPercentageC3 = (animPercentage * 5) - 100;
+                                            } else if (animPercentage > 40) {
+                                                animPercentageC3 = 100;
+                                            } else {
+                                                animPercentageC3 = 0;
+                                            }
+                                            if (animPercentage > 40 && animPercentage < 60) {
+                                                card2.classList.add('move-card--back');
+                                                card3.classList.remove('move-card--back');
+                                                animPercentageC4 = (animPercentage * 5) - 200;
+                                            } else if (animPercentage > 60) {
+                                                card3.classList.add('move-card--back');
+                                                card4.classList.remove('move-card--back');
+                                                animPercentageC4 = 100;
+                                            } else {
+                                                animPercentageC4 = 0;
+                                            }
+                                            if (animPercentage > 80) {
+                                                untilNow.classList.remove('until-hide');
+                                            } else {
+                                                untilNow.classList.add('until-hide');
+                                            }
+                                        } else {
+                                            animPercentage = 100;
+                                            goBeyondMove.classList.remove('fixed');
+                                            goBeyondMove.classList.add('end');
+                                        }
+
+                                        // anim card 2
+                                        card2.style.opacity = (animPercentageC2 * 0.01);
+                                        card2.style.transform = 'translateY(' + ((animPercentageC2 * -1) + 100) + 'vh)';
+
+                                        // anim card 3
+                                        card3.style.opacity = (animPercentageC3 * 0.01);
+                                        card3.style.transform = 'translateY(' + ((animPercentageC3 * -1) + 100) + 'vh)';
+
+                                        // anim card 4
+                                        card4.style.opacity = (animPercentageC4 * 0.01);
+                                        card4.style.transform = 'translateY(' + ((animPercentageC4 * -1) + 100) + 'vh)';
+                                    }
+
+                                    window.addEventListener('scroll', () => {
+                                        cardsAnim();
+                                    }, true);
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
