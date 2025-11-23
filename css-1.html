@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stack Scroll Fade Optimized</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* WRAPPER */
+        #go-beyond {
+            position: relative;
+            width: 100%;
+        }
+
+        /* MOVING WRAPPER */
+        #go-beyond-move {
+            width: 1110px;
+            max-width: calc(100% - 30px);
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+        }
+
+        #go-beyond-move.fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        #go-beyond-move.end {
+            position: absolute;
+            bottom: 0;
+        }
+
+        /* TITLE */
+        #go-beyond-title {
+            margin-bottom: 40px;
+        }
+
+        #go-beyond-title h2 {
+            margin: 0;
+            font-size: 44px;
+        }
+
+        /* CARDS AREA */
+        .move-cards {
+            position: relative;
+            width: 100%;
+            min-height: 600px;
+        }
+
+        .move-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 32px;
+            padding: 40px;
+            box-sizing: border-box;
+            transition: transform .3s ease-out, opacity .3s ease-out;
+            min-height: 420px;
+        }
+
+        /* CARD 1 = static → không animate từ dưới lên */
+        .move-card--1 {
+            position: static;
+            background: #FFFCDC;
+            color: #FFD92C;
+        }
+
+        /* CARD 2–4 position offset */
+        .move-card--2 {
+            top: 22%;
+            background: #CEF2FF;
+            color: #019ACE;
+        }
+
+        .move-card--3 {
+            top: 44%;
+            background: #FFEEF5;
+            color: #FF619F;
+        }
+
+        .move-card--4 {
+            top: 66%;
+            background: #D0FBF0;
+            color: #0DD4A1;
+        }
+
+        /* NUMBERS */
+        .move-card__num {
+            font-size: clamp(120px, 20vw, 260px);
+            line-height: .8;
+            font-weight: 700;
+            opacity: .25;
+            transition: transform .3s ease-out;
+        }
+
+        /* TEXT */
+        .move-card__text {
+            font-size: clamp(20px, 3vw, 35px);
+            line-height: 1.3;
+            max-width: 600px;
+            transition: opacity .3s ease-out;
+        }
+
+        /* CARD BACK EFFECT */
+        .move-card.back .move-card__num {
+            transform: scale(.2) translateY(-40%);
+        }
+
+        .move-card.back .move-card__text {
+            opacity: 0;
+        }
+
+        /* fade-up hidden */
+        .card-hide {
+            opacity: 0;
+            transform: translateY(100vh);
+        }
+
+        /* UNTIL NOW */
+        .until-now {
+            padding: 260px 0 100px;
+            text-align: center;
+            font-size: 40px;
+            opacity: 0;
+            transition: opacity .5s ease-out;
+            pointer-events: none;
+        }
+
+        .until-now.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="go-beyond">
+
+        <div id="go-beyond-move">
+
+            <div id="go-beyond-title">
+                <h2>Go Beyond Disconnected Clicks</h2>
+            </div>
+
+            <div class="move-cards">
+
+                <div class="move-card move-card--1">
+                    <div class="move-card__num">01</div>
+                    <div class="move-card__text">
+                        Your interactions with a brand often feel fragmented.
+                        <br><br>
+                        A personalized email leads to a generic site.
+                    </div>
+                </div>
+
+                <div class="move-card move-card--2 card-hide">
+                    <div class="move-card__num">02</div>
+                    <div class="move-card__text">Search fails to understand how you talk.</div>
+                </div>
+
+                <div class="move-card move-card--3 card-hide">
+                    <div class="move-card__num">03</div>
+                    <div class="move-card__text">Ads chase you for products you already own.</div>
+                </div>
+
+                <div class="move-card move-card--4 card-hide">
+                    <div class="move-card__num">04</div>
+                    <div class="move-card__text">
+                        True personalization – understanding and adapting instantly – has been elusive.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="until-now">Until now.</div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const container = document.querySelector('#go-beyond');
+            const mover = document.querySelector('#go-beyond-move');
+            const cards = [...document.querySelectorAll('.move-card')];
+            const untilNow = document.querySelector('.until-now');
+
+            const moverH = mover.offsetHeight;
+            container.style.minHeight = moverH * 5 + 'px';
+
+            const animStart = container.offsetTop;
+            const animEnd = animStart + container.offsetHeight - moverH;
+
+            function onScroll() {
+                const y = window.pageYOffset;
+
+                if (y < animStart) {
+                    mover.classList.remove('fixed', 'end');
+                    return;
+                }
+                if (y > animEnd) {
+                    mover.classList.remove('fixed');
+                    mover.classList.add('end');
+                    return;
+                }
+
+                mover.classList.add('fixed');
+                mover.classList.remove('end');
+
+                const pct = ((y - animStart) / (animEnd - animStart)) * 100;
+
+                // CARD 1 static
+                cards[0].style.opacity = 1;
+                cards[0].style.transform = 'translateY(0)';
+
+                // CARD 2→4 fade-up
+                cards.slice(1).forEach((card, i) => {
+                    const index = i + 1;
+                    const start = index * 20;
+                    const local = Math.max(0, Math.min(100, (pct - start) * 5));
+
+                    card.classList.remove('card-hide');
+                    card.style.opacity = local / 100;
+                    card.style.transform = `translateY(${100 - local}vh)`;
+                });
+
+                // BACK trigger
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const trigger = 80;
+                    if (rect.top < trigger) card.classList.add('back');
+                    else card.classList.remove('back');
+                });
+
+                // NEW: MAX FONT-SIZE TRIGGER (260px)
+                cards.forEach((card, index) => {
+
+                    if (index === 0) return; // card 1 không có card phía trên
+
+                    const numEl = card.querySelector('.move-card__num');
+                    const fontSize = parseFloat(getComputedStyle(numEl).fontSize);
+
+                    const prevCard = cards[index - 1];
+
+                    if (fontSize >= 260) {
+                        prevCard.classList.add('reach-max');
+                    } else {
+                        prevCard.classList.remove('reach-max');
+                    }
+                });
+
+                // UNTIL NOW
+                if (pct > 80) untilNow.classList.add('show');
+                else untilNow.classList.remove('show');
+            }
+
+            window.addEventListener('scroll', onScroll);
+        });
+    </script>
+
+</body>
+
+</html>
