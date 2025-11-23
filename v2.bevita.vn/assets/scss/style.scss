@@ -1,0 +1,36 @@
+@mixin respond($size) {
+    @if $size ==large {
+        @media (min-width: 850px) {
+            @content;
+        }
+    }
+
+    @else if $size ==medium {
+        @media (max-width: 849px) {
+            @content;
+        }
+    }
+
+    @else if $size ==small {
+        @media (max-width: 549px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "⚠️ Không có breakpoint #{$size} được định nghĩa (dùng: small, medium, large).";
+    }
+}
+
+.absolute-footer,
+html {
+    background: #fbf9f6;
+}
+
+body {
+    font-size: 15px;
+}
+
+@import '_header';
+
+@import '_footer';

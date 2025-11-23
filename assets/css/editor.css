@@ -1,0 +1,37 @@
+.mce-ico.mce-i-suggestededits-badge {
+    background: #1b76cd;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    padding: 5px 8px !important;
+    border-radius: 4px;
+    line-height: 1 !important;
+    height: auto !important;
+    width: auto !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ANIMATION KHÔNG LÀM MỜ CHỮ */
+    animation: badgeGlow 1.8s infinite ease-in-out;
+}
+
+/* Nội dung chữ trong icon */
+.mce-ico.mce-i-suggestededits-badge:before {
+    content: "Badge";
+    /* Bạn muốn chữ gì thì thay ở đây */
+}
+
+/* Animation glow nhẹ */
+@keyframes badgeGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0px rgba(27, 118, 205, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 6px rgba(27, 118, 205, 0.7);
+    }
+}

@@ -1,0 +1,54 @@
+@mixin respond($size) {
+    @if $size ==large {
+        @media (min-width: 850px) {
+            @content;
+        }
+    }
+
+    @else if $size ==medium {
+        @media (max-width: 849px) {
+            @content;
+        }
+    }
+
+    @else if $size ==small {
+        @media (max-width: 549px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "⚠️ Không có breakpoint #{$size} được định nghĩa (dùng: small, medium, large).";
+    }
+}
+
+:root {
+    --color-item-menu: #212934;
+    --color-item-menu-hover: #005eb8;
+}
+
+body.lock-scroll {
+    overflow: hidden;
+
+    #header-style-braze {
+        @media screen and (max-width: 1200px) {
+            box-shadow: none !important;
+        }
+    }
+}
+
+#main {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@import '_header';
+
+@import 'component/tab-custom';
+
+@import 'template/_masterclass';
+@import 'template/_improve-acquisition';
+
+@import 'single/_classes';
+
+@import '_footer';

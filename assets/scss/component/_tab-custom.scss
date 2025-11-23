@@ -1,0 +1,97 @@
+.tab-custom-wrapper {
+    [class*="tab_custom-"] {
+        &:not(.active) {
+            display: none !important;
+        }
+    }
+
+    &_nav {
+        margin-bottom: 32px;
+
+        &>.fusion-column-wrapper {
+            flex-flow: row nowrap !important;
+            justify-content: space-between;
+
+            @media screen and (max-width: 800px) {
+                flex-flow: row wrap !important;
+            }
+
+            &>div {
+                width: 100%;
+                margin: 0 10px;
+
+                @media screen and (max-width: 800px) {
+                    margin-bottom: 10px;
+                }
+
+                a {
+                    width: 100%;
+                    background: transparent;
+                    color: #437eeb;
+                    border: 1px solid #437eeb;
+                    text-transform: uppercase;
+                }
+            }
+
+            [data-tab^="tab_custom-"] {
+                width: 100%;
+                background: transparent;
+                color: #437eeb !important;
+                border: 1px solid #437eeb;
+                text-transform: uppercase;
+
+                * {
+                    color: inherit !important;
+                }
+
+                &.active {
+                    background: #313e5b;
+                    border-color: #313e5b;
+                    color: white !important;
+                }
+            }
+        }
+    }
+
+    .style-tab-conversion {
+
+        &>.fusion-column-wrapper>.fusion-builder-row {
+            align-items: stretch;
+        }
+
+        .col-right {
+
+            .fusion-counters-box {
+                margin-bottom: 32px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .col-left {
+            &>.fusion-column-wrapper {
+                border-radius: 24px;
+                overflow: hidden;
+                padding: 24px;
+
+                @media screen and (max-width: 800px) {
+                    background-blend-mode: unset !important;
+                }
+            }
+
+            h3 {
+                font-family: 'Roboto Flex';
+                font-weight: bold;
+                font-size: 32px;
+                line-height: 1.3em;
+                color: #313e5b;
+
+                @media screen and (max-width: 800px) {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

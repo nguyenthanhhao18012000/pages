@@ -1,0 +1,540 @@
+.wp-singular.single-classes {
+    // #main {
+    //     background: var(--theme-mod-background-white) !important;
+    // }
+
+    .fusion-breadcrumbs {
+        color: var(--theme-mod-color-black) !important;
+
+        a {
+            color: inherit !important;
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-position: under;
+            }
+        }
+
+        .awb-breadcrumb-list {
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    }
+
+    .single-masterclass-banner {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: var(--theme-mod-background-white);
+
+        .col-text,
+        .col-video {
+            margin-bottom: 0;
+        }
+
+        .col-text {
+            :last-child {
+                margin-bottom: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p {
+                color: var(--theme-mod-color-black);
+            }
+
+            h1 {
+                font-size: 40px;
+                font-weight: 900;
+                line-height: 1.3;
+                margin-bottom: 32px;
+                margin-top: 0;
+
+                @include respond(medium) {
+                    font-size: 24px;
+                }
+
+            }
+
+            p {
+                font-size: 20px;
+
+                @include respond(medium) {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        @include respond(medium) {
+            .col-video {
+                margin-bottom: 32px;
+                justify-content: center;
+
+                &>.fusion-column-wrapper {
+                    max-width: 60%;
+                }
+            }
+        }
+
+        @include respond(small) {
+
+            .col-video {
+                justify-content: center;
+
+                &>.fusion-column-wrapper {
+                    max-width: 100%;
+                }
+            }
+        }
+
+    }
+
+    .single-masterclass-content {
+        color: var(--theme-mod-color-black);
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: var(--theme-mod-background-secondary);
+
+
+        :last-child {
+            margin-bottom: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ol,
+        ul,
+        li,
+        span,
+        strong,
+        b,
+        em,
+        i {
+            color: var(--theme-mod-color-black);
+        }
+
+        h2 {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        .fusion-content-tb {
+            &>*:first-child {
+                margin-top: 0;
+            }
+
+            &>*:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .classes_detail_split_video-wrapper {
+        margin-bottom: 48px;
+
+        .title-column-wrapper {
+            margin-bottom: 32px;
+
+            h3 {
+                margin-top: 0;
+
+                @include respond(medium) {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .video-column-wrapper {
+            display: grid;
+            grid-template-columns: 65% 1fr;
+            gap: 30px;
+            color: var(--theme-mod-color-black);
+
+            @include respond(medium) {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .chapter-title {
+                font-weight: bold;
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+
+            .chapter-item {
+                position: relative;
+                padding: 12px 16px;
+                padding-right: 40px;
+                color: white;
+                margin-bottom: 5px;
+                font-size: 15px;
+                cursor: pointer;
+                background: var(--theme-mod-color-blue) !important;
+                border: none !important;
+                border-radius: 4px;
+                overflow: hidden;
+                line-height: 1.4;
+
+                --tw-shadow: 0px 4px 40px 0px #0000001a;
+                box-shadow:
+                    var(--tw-ring-offset-shadow, 0 0 transparent),
+                    var(--tw-ring-shadow, 0 0 transparent),
+                    var(--tw-shadow);
+                transition: 0.2s all;
+
+                transform: translateX(0);
+
+                span {
+                    color: inherit;
+                }
+
+                .chapter-icon {
+                    position: absolute;
+                    right: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                &:hover,
+                &.active {
+                    background: var(--theme-mod-color-red) !important;
+                    transition: 0.2s all;
+                    transform: translateX(5px);
+                }
+            }
+
+            .video-wrapper {
+                position: relative;
+                width: 100%;
+                padding-top: 56.25%;
+                /* 16:9 = 9 / 16 = 0.5625 = 56.25% */
+                overflow: hidden;
+                border-radius: 8px;
+            }
+
+            .video-wrapper iframe,
+            .video-wrapper #ytplayer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .chapter-items {
+                max-height: 400px;
+                overflow-x: hidden;
+                overflow-y: auto;
+
+                @include respond(medium) {
+                    max-height: 300px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+                    border-radius: 10px;
+                    background-color: #F5F5F5;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 8px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+                    background-color: #5555559a;
+                }
+            }
+        }
+
+        .video-description-wrapper {
+            margin-top: 24px;
+
+            @include respond(medium) {
+                margin-top: 0;
+            }
+
+            :last-child {
+                margin-bottom: 0;
+            }
+
+            p {
+                margin-bottom: 0.5rem;
+
+                strong {
+                    margin-right: 5px;
+                }
+            }
+
+            a[href*="categories/"] {
+                border-radius: 4px;
+                padding: 4px 12px;
+                font-size: 12px;
+                background: var(--theme-mod-color-blue);
+                color: var(--theme-mod-color-white);
+                margin-right: 5px;
+                text-decoration: none !important;
+
+                &:hover {
+                    background: var(--theme-mod-color-red);
+                }
+            }
+
+        }
+
+        .lecturers-list-wrapper {
+            margin-top: 24px;
+
+            @include respond(medium) {
+                margin-top: 40px;
+            }
+
+            .lecturer-item {
+                margin-bottom: 20px;
+                padding: 24px;
+                gap: 24px;
+                display: grid;
+                grid-template-columns: 150px 1fr;
+                background: var(--theme-mod-background-white);
+                border-radius: 12px;
+                overflow: hidden;
+                color: var(--theme-mod-color-black);
+                align-items: center;
+                box-shadow: 0px 5px 15px 0px #002e5926;
+
+
+
+                @include respond(small) {
+                    grid-template-columns: 1fr;
+                }
+
+            }
+
+            .lecturer-thumbnail {
+                transition: 0.2s all;
+                text-align: center;
+
+                img {
+                    border-radius: 12px;
+                    max-width: 150px;
+                }
+
+                &:hover {
+                    transition: 0.2s all;
+                    transform: scale(1.05);
+                }
+            }
+
+            .lecturer-title {
+
+                @include respond(small) {
+                    text-align: center;
+                }
+
+            }
+
+            .lecturer-info {
+                color: var(--theme-mod-color-black);
+
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6 {
+                    color: var(--theme-mod-color-blue);
+                    margin-bottom: 18px;
+
+                    a {
+                        color: inherit;
+                        text-decoration: none;
+
+                        display: inline-block;
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            display: inline-block;
+                            width: 100%;
+                            height: 2px;
+                            background: var(--theme-mod-color-blue);
+                            position: absolute;
+                            left: 0;
+                            bottom: -6px;
+                            max-width: 0;
+                            transition: 0.4s max-width;
+                        }
+
+                        &:hover {
+                            &:after {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                h3 {
+                    margin-top: 0;
+                    font-size: 24px;
+                    font-weight: 900 !important;
+                }
+
+                p,
+                li {
+                    a {
+                        color: var(--theme-mod-color-black);
+                        text-decoration: underline;
+                        text-underline-position: under;
+                        // display: inline-block;
+                        position: relative;
+
+                        &:hover {
+                            color: var(--theme-mod-color-blue);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .masterclass-group-classes {
+        padding-bottom: 60px !important;
+        padding-top: 60px !important;
+        // background: var(--Neutral-98, #f9f9fc) !important;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            // color: var(--h3_typography-color) !important;
+        }
+
+        .classes-tab-list .tab {
+            opacity: 1 !important;
+
+            background: white !important;
+            border: 1px solid #1f5eab !important;
+            color: #1f5eab !important;
+
+            font-weight: normal !important;
+
+            &:hover,
+            &.active {
+                opacity: 1;
+                background: #1f5eab !important;
+                border-color: #1f5eab !important;
+                color: white !important;
+            }
+        }
+
+        .slick-prev,
+        .slick-next {
+            color: white !important;
+            background: #1f5eab !important;
+            opacity: 0.5;
+            transition: 0.2s all;
+
+            &:hover,
+            &:focus,
+            &:active {
+                opacity: 1;
+                transition: 0.2s all;
+            }
+        }
+
+        /* Định vị Dots */
+        .slick-dots {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding-top: 15px;
+            list-style: none;
+            margin: 0;
+        }
+
+        /* Dot mặc định = chấm tròn nhỏ */
+        .slick-dots li button::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1f5eab;
+            /* Màu xám */
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+
+        /* Dot active = viên nang trắng */
+        .slick-dots li.slick-active button::before {
+            width: 24px;
+            height: 8px;
+            border-radius: 12px;
+            background: #1f5eab;
+            opacity: 1;
+        }
+    }
+
+    .masterclass-ctas-level-up-your-team {
+        background: white !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+}
+
+.wp-singular.single-classes {
+    // #main {
+    //     padding-bottom: 0;
+    // }
+
+    .breadcrumb-wrapper {
+        background: var(--theme-mod-background-secondary) !important;
+    }
+
+    .single-masterclass-banner {
+        background: var(--theme-mod-background-white) !important;
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+
+    .single-masterclass-content {
+        background: var(--theme-mod-background-secondary) !important;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .masterclass-group-classes {
+        background: var(--theme-mod-background-white) !important;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .masterclass-ctas-level-up-your-team {
+        background: var(--theme-mod-background-secondary) !important;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .masterclass-faqs-wallper {
+        background: var(--theme-mod-background-white) !important;
+        padding-top: 60px;
+        padding-bottom: 0;
+    }
+}
