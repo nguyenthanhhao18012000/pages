@@ -3,6 +3,10 @@ jQuery(function ($) {
         $(this).children('i').first().replaceWith('<i class="fas fa-arrow-left"></i>');
         $(this).addClass('has-changed');
     });
+    $('.i-custom_arrow-right').each(function () {
+        $(this).children('i').first().replaceWith('<i class="fas fa-arrow-right"></i>');
+        $(this).addClass('has-changed');
+    });
 });
 
 
