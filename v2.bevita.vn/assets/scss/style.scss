@@ -22,9 +22,169 @@
     }
 }
 
+.uxb-draggable {
+
+    &.show-for-medium,
+    &.show-for-small,
+    &.hide-for-medium,
+    &.hide-for-small,
+    &.hidden {
+        display: block !important;
+        border: 1px solid red;
+        position: relative;
+
+        // padding-top: 40px !important;
+        &::after {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+    }
+
+    &.show-for-medium {
+        max-width: 600px;
+
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Tablet và Mobile';
+        }
+
+        &.hide-for-small {
+            &::after {
+                content: 'Chỉ hiển thị ở chế độ Tablet';
+            }
+        }
+    }
+
+    &.show-for-small {
+        max-width: 320px;
+
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Mobile';
+        }
+    }
+
+    &.hide-for-medium {
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Desktop';
+        }
+    }
+
+    &.hide-for-small {
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Desktop và Tablet';
+        }
+    }
+
+    &.hidden {
+        visibility: visible !important;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 1000 1000' enable-background='new 0 0 1000 1000' xml:space='preserve' fill='red' opacity='.2'%3E%3Cmetadata%3E Svg Vector Icons : http://www.onlinewebfonts.com/icon %3C/metadata%3E%3Cg%3E%3Cpath d='M846.5,153.5c-191.3-191.4-501.6-191.4-693,0c-191.4,191.4-191.3,501.6,0,692.9c191.4,191.4,501.6,191.4,693,0C1037.9,655.1,1037.8,344.9,846.5,153.5L846.5,153.5z M211.2,788.8C61.9,639.5,52.5,403.4,182.7,243L757,817.3C596.6,947.5,360.5,938,211.2,788.8L211.2,788.8z M806.7,768.8L231.1,193.3C391.5,52.5,635.7,58.2,788.8,211.2C941.8,364.4,947.5,608.4,806.7,768.8L806.7,768.8z'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            z-index: 1;
+        }
+
+        &::after {
+            content: 'Tạm ẩn trên toàn bộ thiết bị';
+        }
+    }
+}
+
+.uxb-draggable {
+
+    .show-for-medium,
+    .show-for-small,
+    .hide-for-medium,
+    .hide-for-small,
+    .hidden {
+        display: block !important;
+        border: 1px solid red;
+        position: relative;
+        // padding-top: 40px !important;
+
+        &::after {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+    }
+
+    .show-for-medium {
+        max-width: 600px;
+
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Tablet và Mobile';
+        }
+
+        .hide-for-small {
+            &::after {
+                content: 'Chỉ hiển thị ở chế độ Tablet';
+            }
+        }
+    }
+
+    .show-for-small {
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Mobile';
+        }
+    }
+
+    .hide-for-medium {
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Desktop';
+        }
+    }
+
+    .hide-for-small {
+        &::after {
+            content: 'Chỉ hiển thị ở chế độ Desktop và Tablet';
+        }
+    }
+
+    .hidden {
+        visibility: visible !important;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 1000 1000' enable-background='new 0 0 1000 1000' xml:space='preserve' fill='red' opacity='.2'%3E%3Cmetadata%3E Svg Vector Icons : http://www.onlinewebfonts.com/icon %3C/metadata%3E%3Cg%3E%3Cpath d='M846.5,153.5c-191.3-191.4-501.6-191.4-693,0c-191.4,191.4-191.3,501.6,0,692.9c191.4,191.4,501.6,191.4,693,0C1037.9,655.1,1037.8,344.9,846.5,153.5L846.5,153.5z M211.2,788.8C61.9,639.5,52.5,403.4,182.7,243L757,817.3C596.6,947.5,360.5,938,211.2,788.8L211.2,788.8z M806.7,768.8L231.1,193.3C391.5,52.5,635.7,58.2,788.8,211.2C941.8,364.4,947.5,608.4,806.7,768.8L806.7,768.8z'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            z-index: 1;
+        }
+
+        &::after {
+            content: 'Tạm ẩn trên toàn bộ thiết bị';
+        }
+    }
+}
+
 .absolute-footer,
 html {
-    background: #fbf9f6;
+    background: #fbf9f6 !important;
 }
 
 body {
