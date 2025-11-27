@@ -1,21 +1,45 @@
 <?php
-add_action('wp_head', 'bevita_output_custom_css', 999);
-function bevita_output_custom_css()
-{
-    $is_localhost_mode = isset($_GET['mode']) && $_GET['mode'] === 'localhost' && current_user_can('manage_options');
-    $ajax_url = admin_url('admin-ajax.php');
+add_action('init', function () {
+    if (isset($_GET['mode']) && $_GET['mode'] === 'localhost') {
+        setcookie(
+            'bevita_localhost_mode',
+            '1',
+            time() + 3600,
+            COOKIEPATH,
+            COOKIE_DOMAIN
+        );
 
-    echo '<script>
-        var attrCore = {
-            ajax_url: "' . esc_url($ajax_url) . '"
-        };
-    </script>' . "\n";
-
-    if ($is_localhost_mode) {
-        echo '<link rel="stylesheet" href="http://localhost/pages/v2.bevita.vn/assets/css/style.css?version=' . time() . '" type="text/css" media="all" />' . "\n";
-        return;
+        $_COOKIE['bevita_localhost_mode'] = '1';
     }
+});
 
-    $github_css_url = 'https://nguyenthanhhao18012000.github.io/pages/v2.bevita.vn/assets/css/style.css';
-    echo '<link rel="stylesheet" href="' . esc_url($github_css_url) . '?ver=' . time() . '" type="text/css" media="all" />' . "\n";
+// Enqueue CSS + JS
+add_action('wp_enqueue_scripts', 'bevita_enqueue_custom_assets', 99);
+function bevita_enqueue_custom_assets()
+{
+    $is_localhost_mode = !empty($_COOKIE['bevita_localhost_mode']);
+
+    $localhost_css = 'http://localhost/pages/v2.bevita.vn/assets/css/style.css';
+    $github_css    = 'https://nguyenthanhhao18012000.github.io/pages/v2.bevita.vn/assets/css/style.css';
+
+    $localhost_js  = 'http://localhost/pages/v2.bevita.vn/assets/js-min/script.js';
+    $github_js     = 'https://nguyenthanhhao18012000.github.io/pages/v2.bevita.vn/assets/js-min/script.js';
+
+    $css_url = $is_localhost_mode ? $localhost_css : $github_css;
+    $js_url  = $is_localhost_mode ? $localhost_js  : $github_js;
+
+    wp_enqueue_style(
+        'bevita-style',
+        $css_url,
+        [],
+        time(),
+        'all'
+    );
+
+    wp_enqueue_script(
+        'bevita-script',
+        $js_url,
+        ['jquery'],
+        time()
+    );
 }

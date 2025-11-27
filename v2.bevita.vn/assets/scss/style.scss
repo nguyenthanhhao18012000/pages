@@ -191,6 +191,10 @@ body {
     font-size: 15px;
 }
 
-@import '_header';
+@import 'header';
 
-@import '_footer';
+@import 'template/service';
+@import 'component/button';
+@import 'component/section';
+
+@import 'footer';

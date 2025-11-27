@@ -1,0 +1,38 @@
+[class*="i-custom_"] {
+    opacity: 0;
+}
+
+[class*="i-custom_"].has-changed {
+    animation: bevitaFadeIn 0.2s ease forwards;
+}
+
+@keyframes bevitaFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.button.go_back_history {
+
+    &.button.is-link,
+    &.button.is-underline {
+        padding: 0;
+        min-width: unset;
+        min-height: unset;
+        border-radius: 0 !important;
+        color: var(--Color-Gray-gray-900, #18181B);
+        margin: 0;
+
+        /* Normal/text-md */
+        font-family: var(--Font-Inter, Inter);
+        font-size: var(--Font-Size-15, 15px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        /* 146.667% */
+    }
+}
