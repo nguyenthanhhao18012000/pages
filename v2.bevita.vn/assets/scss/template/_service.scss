@@ -386,9 +386,11 @@
                     margin-left: 10px;
                 }
 
-                &:hover {
-                    color: var(--fs-experimental-link-color-hover);
 
+                &[href] {
+                    &:hover {
+                        color: var(--fs-experimental-link-color-hover);
+                    }
                 }
             }
 
