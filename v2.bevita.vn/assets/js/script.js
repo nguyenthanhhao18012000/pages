@@ -6,7 +6,8 @@ jQuery(function ($) {
         'i-custom_phone': 'fa-phone',
         'i-custom_comment': 'fa-comment',
         'i-custom_trophy': 'fa-trophy',
-        'i-custom_shield-virus': 'fa-shield-virus'
+        'i-custom_shield-virus': 'fa-light fa-shield-check  ',
+        'i-custom_badge-check': 'fa-light fa-badge-check'
     };
 
     $.each(iconMap, function (customClass, faIcon) {

@@ -42,4 +42,6 @@ function bevita_enqueue_custom_assets()
         ['jquery'],
         time()
     );
+
+    wp_enqueue_style('fontawesome-pro', 'https://nguyenthanhhao18012000.github.io/pages/v2.bevita.vn/assets/plugins/fontawesome/css/all-pro.css');
 }

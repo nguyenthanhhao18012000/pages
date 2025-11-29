@@ -6,6 +6,12 @@
     }
 }
 
+.uxb-wrapper {
+    [class*="i-custom_"] {
+        opacity: 1;
+    }
+}
+
 [class*="i-custom_"].has-changed {
     animation: bevitaFadeIn 0.2s ease forwards;
 }
@@ -56,5 +62,29 @@
         font-weight: 600;
         line-height: 16px;
         /* 133.333% */
+    }
+
+    i {
+        color: var(--Color-Gray-gray-900, #18181B);
+    }
+
+    &.secondary {
+        background: var(--Color-Secondary-secondary-500, #F79C09) !important;
+
+        span {
+            color: var(--Color-White-white-100, #FFF);
+
+            /* Normal/text-xs */
+            font-family: var(--Font-Inter, Inter);
+            font-size: var(--Font-Size-12, 12px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            /* 133.333% */
+        }
+
+        i {
+            color: white;
+        }
     }
 }
