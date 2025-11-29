@@ -67,6 +67,12 @@
                 }
             }
 
+            &.current-menu-item {
+                a {
+                    color: var(--fs-experimental-link-color-hover);
+                }
+            }
+
             &.underline {
                 &>a {
                     text-decoration: underline;

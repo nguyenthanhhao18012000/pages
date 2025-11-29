@@ -163,6 +163,8 @@ img {
         margin-left: 6px; }
       #header .header-nav .menu-item a[href]:hover {
         color: var(--fs-experimental-link-color-hover); }
+    #header .header-nav .menu-item.current-menu-item a {
+      color: var(--fs-experimental-link-color-hover); }
     #header .header-nav .menu-item.underline > a {
       text-decoration: underline;
       text-underline-position: under; }
@@ -857,6 +859,47 @@ img {
     .page-service_kham_pha_bevita_spa .row-dat-lich-ngay .col-right .icon-box-text p:last-child {
       margin-bottom: 0; }
 
+.page-service-detail_banner {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important; }
+  .page-service-detail_banner ._cards-box {
+    position: relative; }
+    .page-service-detail_banner ._cards-box ._card {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 12px;
+      cursor: pointer;
+      overflow: hidden; }
+      .page-service-detail_banner ._cards-box ._card._hide {
+        visibility: hidden; }
+      .page-service-detail_banner ._cards-box ._card:not(._hide) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: all 1s cubic-bezier(0.18, 0.98, 0.45, 1);
+        transition: all 1s cubic-bezier(0.18, 0.98, 0.45, 1);
+        -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07);
+                box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.07); }
+        .page-service-detail_banner ._cards-box ._card:not(._hide)[data-slide='0'] {
+          -webkit-transform: translate(0px, 0px) scale(1);
+                  transform: translate(0px, 0px) scale(1);
+          z-index: 6;
+          opacity: 1;
+          -webkit-transition: all 0.32s cubic-bezier(0.18, 0.98, 0.45, 1);
+          transition: all 0.32s cubic-bezier(0.18, 0.98, 0.45, 1); }
+        .page-service-detail_banner ._cards-box ._card:not(._hide)[data-slide='1'] {
+          -webkit-transform: translate(15%) scale(0.9);
+                  transform: translate(15%) scale(0.9);
+          z-index: 5;
+          opacity: 0.8; }
+        .page-service-detail_banner ._cards-box ._card:not(._hide)[data-slide='2'] {
+          -webkit-transform: translate(30%) scale(0.8);
+                  transform: translate(30%) scale(0.8);
+          z-index: 4;
+          opacity: 0.6; }
+  .page-service-detail_banner ._content-placeholder {
+    padding: 14px 18px 20px; }
+
 [class*="i-custom_"] {
   opacity: 0; }
   [class*="i-custom_"].uxb-draggable {
@@ -877,25 +920,32 @@ img {
     opacity: 0; }
   to {
     opacity: 1; } }
-.button[class*="i-custom_"].button.is-link, .button[class*="i-custom_"].button.is-underline {
+.button.button.is-link, .button.button.is-underline {
   padding: 0;
   min-width: unset;
   min-height: unset;
-  border-radius: 0 !important;
-  color: var(--Color-Gray-gray-900, #18181B);
-  margin: 0;
-  /* Normal/text-md */
-  font-family: var(--Font-Inter, Inter);
-  font-size: var(--Font-Size-15, 15px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  /* 146.667% */ }
-  .button[class*="i-custom_"].button.is-link span, .button[class*="i-custom_"].button.is-underline span {
+  color: var(--Color-Gray-gray-900, #18181B); }
+  .button.button.is-link span, .button.button.is-underline span {
     line-height: inherit; }
 
 .white.button.is-outline {
   color: var(--Color-Gray-gray-900, #18181B) !important; }
+
+.button.button-badge {
+  border-radius: 8px !important;
+  background: #A2B4B5 !important;
+  padding: 6px 12px !important;
+  margin-right: 12px;
+  margin-bottom: 10px; }
+  .button.button-badge span {
+    color: var(--Color-Gray-gray-900, #18181B);
+    /* Semibold/text-xs */
+    font-family: var(--Font-Inter, Inter);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    /* 133.333% */ }
 
 .section .row-title .section-title-container {
   margin-bottom: 16px; }
@@ -918,6 +968,15 @@ img {
   border: none;
   margin-bottom: 0;
   padding-bottom: 0; }
+.section .row-title h1 {
+  color: var(--Color-Gray-gray-900, #18181B);
+  /* Bold/text-7xl */
+  font-family: var(--Font-Playfair, Playfair);
+  font-size: var(--Font-Size-60, 60px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px;
+  /* 100% */ }
 .section .row-title h2 {
   color: var(--Color-Gray-gray-900, #18181B);
   /* Bold/text-7xl */
