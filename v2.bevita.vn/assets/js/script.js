@@ -63,14 +63,14 @@ jQuery(document).ready(function ($) {
                 nextSlide();
             });
 
-            let autoplay = setInterval(nextSlide, 3000);
+            let autoplay = setInterval(nextSlide, 5000);
 
             $box.on('mouseenter', function () {
                 clearInterval(autoplay);
             });
 
             $box.on('mouseleave', function () {
-                autoplay = setInterval(nextSlide, 3000);
+                autoplay = setInterval(nextSlide, 5000);
             });
 
             setIndex(arrIndexes);
