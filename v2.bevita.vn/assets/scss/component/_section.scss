@@ -51,6 +51,14 @@
 
 
     }
+
+    &.dark {
+        .row-title {
+            h2 {
+                color: white;
+            }
+        }
+    }
 }
 
 .section-go_back_history {
