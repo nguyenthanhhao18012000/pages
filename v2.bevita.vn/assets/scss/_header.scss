@@ -67,7 +67,8 @@
                 }
             }
 
-            &.current-menu-item {
+            &.current-menu-item,
+            &.current-page-ancestor {
                 a {
                     color: var(--fs-experimental-link-color-hover);
                 }

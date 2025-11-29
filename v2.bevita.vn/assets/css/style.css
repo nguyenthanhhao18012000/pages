@@ -163,7 +163,7 @@ img {
         margin-left: 6px; }
       #header .header-nav .menu-item a[href]:hover {
         color: var(--fs-experimental-link-color-hover); }
-    #header .header-nav .menu-item.current-menu-item a {
+    #header .header-nav .menu-item.current-menu-item a, #header .header-nav .menu-item.current-page-ancestor a {
       color: var(--fs-experimental-link-color-hover); }
     #header .header-nav .menu-item.underline > a {
       text-decoration: underline;
