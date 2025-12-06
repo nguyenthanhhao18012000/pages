@@ -1,0 +1,18 @@
+.related-products-wrapper {
+    border-top: unset;
+    padding-top: 36px;
+
+    .product-section-title {
+        padding: 0;
+        color: var(--Color-Gray-gray-900, #18181B);
+
+        /* Bold/text-7xl */
+        font-family: var(--Font-Playfair, Playfair);
+        font-size: var(--Font-Size-60, 60px);
+        font-style: normal;
+        font-weight: 700;
+        text-transform: inherit;
+        line-height: 100%;
+        margin-bottom: 60px;
+    }
+}

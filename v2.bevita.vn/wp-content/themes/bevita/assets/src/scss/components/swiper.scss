@@ -1,0 +1,43 @@
+.swiper-container {
+    position: relative;
+
+    .swiper-button-header {
+        position: absolute;
+        top: -108px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: fit-content;
+        z-index: 99;
+    }
+}
+
+.swiper {
+    .swiper-wrapper {}
+
+    .swiper-button-next-custom {}
+
+    .swiper-button-prev-custom {}
+}
+
+
+.swiper-button-next-custom,
+.swiper-button-prev-custom {
+    overflow: hidden;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    padding: 11px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--Color-Gray-gray-900, #18181B);
+    cursor: pointer;
+}
+
+.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}

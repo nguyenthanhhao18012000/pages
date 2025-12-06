@@ -1,0 +1,26 @@
+.section-hero {
+    padding-top: 64px !important;
+    padding-bottom: 0 !important;
+
+    &__title {
+        color: var(--Color-Gray-gray-900, #18181B);
+
+        /* Bold/text-7xl */
+        font-family: var(--Font-Playfair, Playfair);
+        font-size: var(--Font-Size-60, 60px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 60px;
+        /* 100% */
+    }
+
+    &__subtitle {}
+
+    &__container {
+        & .col {
+            @include respond-min(850px) {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

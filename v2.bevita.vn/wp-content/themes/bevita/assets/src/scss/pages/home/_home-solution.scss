@@ -1,0 +1,18 @@
+.home-solution {
+    padding-top: 120px !important;
+    padding-bottom: 64px !important;
+
+    &__heading {
+        &+.pin-spacer {
+            // height: 100vh !important;
+            // max-height: 100vh !important;
+            // padding: 0 0 100vh !important;
+        }
+    }
+
+    &__content {
+        &>.col {
+            padding-bottom: 0;
+        }
+    }
+}

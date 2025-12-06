@@ -1,0 +1,58 @@
+@charset 'UTF-8';
+
+/* -----------------------------------
+ * 1. CONFIGURATION
+ * ----------------------------------- */
+@import "base/fonts";
+
+@import 'utils/vars',
+'utils/mixins';
+
+/* Custom overrides (optional) */
+@import 'base/grid-overrides';
+
+/* -----------------------------------
+ * 2. BASE
+ * ----------------------------------- */
+@import 'base/reset',
+'base/typography',
+'base/helpers';
+
+/* -----------------------------------
+ * 3. LAYOUT (global sections)
+ * ----------------------------------- */
+@import 'layout/header',
+'layout/footer',
+'layout/main';
+
+/* -----------------------------------
+ * 4. COMPONENTS (reusable)
+ * ----------------------------------- */
+@import 'components/buttons',
+'components/section-heading',
+'components/swiper',
+'components/cards',
+'components/modals',
+'components/panels',
+'components/preloader',
+'components/review-card',
+'components/solution-card',
+'components/home-review',
+'components/post',
+'components/video_card',
+'components/products/index',
+'components/section-breadcrumb',
+'components/section-hero',
+'components/section-divider',
+'components/review-list',
+'components/cta-section',
+'components/nav-pagination',
+'components/posts/index';
+
+/* -----------------------------------
+ * 5. PAGE-LEVEL STYLES
+ * ----------------------------------- */
+
+@import 'pages/home/index',
+'pages/about',
+'pages/products/index';

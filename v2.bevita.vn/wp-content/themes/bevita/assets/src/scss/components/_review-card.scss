@@ -1,0 +1,106 @@
+.review-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    &__content {
+        min-height: 275px;
+        padding: 20px;
+    }
+
+    &__meta {
+        color: var(--Color-Gray-gray-900, #18181B);
+
+        /* Normal/text-lg */
+        font-family: var(--Font-Inter, Inter);
+        font-size: var(--Font-Size-17, 17px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 141.176%;
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        color: var(--Color-Gray-gray-900, #18181B);
+
+        /* Normal/text-4xl */
+        font-family: var(--Font-Inter, Inter);
+        font-size: var(--Font-Size-30, 30px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        // quotes: "“" "”" "‘" "’";
+
+        p {
+            margin: 0;
+        }
+
+        // &::before {
+        //     content: open-quote;
+        // }
+
+        // &::after {
+        //     content: close-quote;
+        // }
+    }
+
+    &__images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 12px;
+        justify-content: space-between;
+
+        .review-card__img {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                aspect-ratio: 200.67/200.67;
+            }
+
+            .tag {
+                position: absolute;
+
+                bottom: 12px;
+                padding: 6px 12px;
+                background: rgba(0, 0, 0, 0.5);
+                /* Normal/text-sm */
+                font-family: var(--Font-Inter, Inter);
+                font-size: var(--Font-Size-14, 14px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135.714%;
+                color: #fff;
+                border-radius: 8px;
+
+
+
+
+
+
+            }
+
+            &.before .tag {
+                left: 12px;
+                color: var(--Color-Gray-gray-900, #18181B);
+                background: #fff;
+            }
+
+            &.after .tag {
+                right: 12px;
+                color: #fff;
+                background: var(--Color-Gray-gray-900, #18181B);
+            }
+        }
+    }
+}

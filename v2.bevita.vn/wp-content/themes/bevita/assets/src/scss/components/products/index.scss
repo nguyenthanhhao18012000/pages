@@ -1,0 +1,17 @@
+@import 'type-product',
+'product-small',
+'shop-sidebar',
+'category',
+'woocommerce-pagination',
+'simple-product',
+'product-footer',
+'woocommerce-tabs',
+'_related-products';
+
+.products {
+    &.row {
+        &>.col {
+            display: flex;
+        }
+    }
+}

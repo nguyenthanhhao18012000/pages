@@ -1,0 +1,45 @@
+/* ============================================
+   GLOBAL — SECTION HEADING
+   ============================================ */
+
+.section__heading {
+    margin-bottom: $space-xxxl;
+    // border: 1px solid;
+
+    &>.col {
+        padding-bottom: 0;
+    }
+
+    h2,
+    .section__title {
+        color: var(--Color-Gray-gray-900, #18181B);
+        /* Bold/text-7xl */
+        font-family: var(--Font-Playfair, Playfair);
+        font-size: var(--Font-Size-36, 36px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 111.111%;
+        margin-bottom: 20px;
+    }
+
+    p,
+    .section__subtitle {
+        margin-bottom: 0;
+    }
+
+    /* nếu UX Builder wrap trong .text */
+    .text {
+
+        h2,
+        p {}
+    }
+
+    @media (min-width: $bp-lg) {
+
+        h2,
+        .section__title {
+            font-size: var(--Font-Size-60, 60px);
+            line-height: 1;
+        }
+    }
+}

@@ -1,0 +1,181 @@
+.product-small.col {
+    &>.col-inner {
+        overflow: hidden;
+        padding: 4px;
+        border-radius: 12px;
+        background: var(--Color-White-white-100, #FFF);
+        height: 100%;
+
+        .badge-container {
+            margin: 0;
+            padding: 0;
+
+            .badge {
+                overflow: hidden;
+                border-radius: 8px;
+                margin-left: 12px;
+                margin-top: 12px;
+                height: auto;
+                width: auto;
+
+
+                &.badge-circle {
+                    .badge-inner {
+                        border-radius: unset;
+                    }
+                }
+
+
+                &.on-sale {
+                    background: var(--Color-Secondary-secondary-500, #F79C09);
+                    color: var(--Color-White-white-100, #FFF);
+                }
+
+                .badge-inner {
+                    /* Normal/text-xs */
+                    font-family: var(--Font-Inter, Inter);
+                    font-size: var(--Font-Size-12, 12px);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 133.333%;
+                    padding: 4px 8px;
+
+                    .onsale {}
+                }
+
+
+            }
+        }
+    }
+}
+
+.product-small.box {
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--Color-White-white-100, #FFF);
+
+    .box-image {
+        overflow: hidden;
+        border-radius: 10px;
+
+        .image-fade_in_back {}
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            aspect-ratio: 314.67/314.67;
+        }
+    }
+
+    .box-text {}
+
+    &.sale {}
+}
+
+.box-text-products {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    align-self: stretch;
+
+    .title-wrapper {
+        .product-cat {
+            all: unset;
+            display: inline-block;
+            color: var(--Color-Gray-gray-900, #18181B);
+
+            /* Semibold/text-xs */
+            font-family: var(--Font-Inter, Inter);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 133.333%;
+            margin-bottom: 12px;
+        }
+
+        .product-title {
+            all: unset;
+            color: var(--Color-Gray-gray-900, #18181B);
+
+            /* Normal/text-xl */
+            font-family: var(--Font-Inter, Inter);
+            font-size: var(--Font-Size-19, 19px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 26px;
+            /* 136.842% */
+        }
+
+    }
+
+    .price-wrapper {
+        .price {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 12px;
+
+            .woocommerce-Price-amount {
+                &.amount {}
+
+                bdi {
+                    color: var(--Color-Gray-gray-900, #18181B);
+
+                    /* Normal/text-2xl */
+                    font-family: var(--Font-Inter, Inter);
+                    font-size: var(--Font-Size-21, 21px);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 133.333%;
+
+                    .woocommerce-Price-currencySymbol {}
+                }
+            }
+
+            del {
+                .woocommerce-Price-amount {
+                    &.amount {}
+
+                    bdi {
+                        color: var(--Color-Gray-gray-500, #71717B);
+
+                        /* Normal/text-lg */
+                        font-family: var(--Font-Inter, Inter);
+                        font-size: var(--Font-Size-17, 17px);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 141.176%;
+                        text-decoration-line: line-through;
+
+                        .woocommerce-Price-currencySymbol {}
+                    }
+                }
+            }
+
+            .screen-reader-text {}
+
+            ins {
+                .woocommerce-Price-amount {
+                    &.amount {}
+
+                    bdi {
+                        color: var(--Color-Gray-gray-900, #18181B);
+
+                        /* Normal/text-2xl */
+                        font-family: var(--Font-Inter, Inter);
+                        font-size: var(--Font-Size-21, 21px);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 133.333%;
+
+                        .woocommerce-Price-currencySymbol {}
+                    }
+                }
+            }
+        }
+    }
+}

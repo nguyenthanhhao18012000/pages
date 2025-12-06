@@ -1,0 +1,57 @@
+.cta-hero {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    padding-block: 64px !important;
+    text-align: center;
+
+    &__content {
+        .banner {
+            border-radius: 24px;
+            overflow: hidden;
+
+            .text-box {
+                max-width: 984px;
+
+                .cta-hero__title {
+                    * {
+                        all: unset;
+                        color: var(--Color-Gray-gray-900, #18181B);
+
+                        /* Bold/text-7xl */
+                        font-family: var(--Font-Playfair, Playfair);
+                        font-size: var(--Font-Size-60, 60px);
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 1;
+                    }
+                }
+
+                .cta-hero__subtitle {
+                    * {
+                        color: var(--Color-Gray-gray-900, #18181B);
+
+                        /* Normal/text-2xl */
+                        font-family: var(--Font-Inter, Inter);
+                        font-size: var(--Font-Size-21, 21px);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 133.333%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__title {}
+
+    &__subtitle {}
+
+    /* Buttons */
+    &__actions {}
+
+    &__btn {}
+
+    /* MOBILE */
+    @media (max-width: 768px) {}
+}

@@ -1,0 +1,50 @@
+@use "sass:math";
+
+/* ============================================
+   DESIGN TOKENS — GLOBAL VARIABLES
+   ============================================ */
+
+/* Container */
+$container-max: 1360px; // Container dùng theo Figma
+$container-max-full: 1384px; // Container Flatsome (1360 + outer paddings)
+
+/* Gutter system */
+$gutter: 24px; // khoảng cách giữa các cột
+$col-padding: math.div($gutter, 2); // padding trái/phải mỗi cột = 12px
+
+/* Spacings */
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-sm: 12px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+$space-xxxl: 60px;
+
+/* Breakpoints */
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 850px; // Flatsome switching point
+$bp-xl: 1024px;
+$bp-xxl: 1384px; // Container full visible width
+
+/* Hero design */
+$hero-col-1: 888px;
+$hero-col-2: 448px;
+
+// Section spacing
+$section-padding-desktop: 120px;
+$section-padding-mobile: 60px;
+
+:root {
+    --Font-Inter: "Inter", sans-serif;
+    --Font-Playfair: "Playfair", serif;
+
+    --Color-Gray-gray-700: #3F3F46;
+    --Background-bg-page: #FBF9F6;
+    --Color-Gray-gray-900: #18181B;
+
+
+    --Font-Size-60: 60px;
+}

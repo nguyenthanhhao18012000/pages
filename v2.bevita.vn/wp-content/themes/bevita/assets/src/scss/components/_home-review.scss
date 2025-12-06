@@ -1,0 +1,31 @@
+.home-review {
+    padding-top: 120px !important;
+    padding-bottom: 64px !important;
+
+    &__header {}
+
+
+    &__list {
+        margin-bottom: 60px;
+
+        &>.col {
+            padding-bottom: 0;
+        }
+    }
+
+    &__cta {
+        .button {
+            margin-bottom: 0;
+        }
+    }
+
+    &__note {
+        padding-bottom: 0;
+    }
+
+    &__note {
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+    }
+}

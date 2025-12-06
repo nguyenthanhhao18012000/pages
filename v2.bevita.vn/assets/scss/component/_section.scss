@@ -87,3 +87,31 @@
         }
     }
 }
+
+.section-blog-title {
+    padding: 0 !important;
+
+
+    .row-title {
+        &>.col {
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: var(--Color-Gray-gray-900, #18181B);
+
+            /* Bold/text-3xl */
+            font-family: var(--Font-Inter, Inter);
+            font-size: var(--Font-Size-24, 24px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+            /* 133.333% */
+        }
+
+        .section-title-container {
+            margin-bottom: 24px;
+        }
+
+    }
+}

@@ -1,18 +1,20 @@
 jQuery(function ($) {
     const iconMap = {
-        'i-custom_arrow-left': 'fa-arrow-left',
-        'i-custom_arrow-right': 'fa-arrow-right',
-        'i-custom_calendar-alt': 'fa-calendar-alt',
-        'i-custom_phone': 'fa-phone',
-        'i-custom_comment': 'fa-comment',
-        'i-custom_trophy': 'fa-trophy',
-        'i-custom_shield-virus': 'fa-light fa-shield-check  ',
-        'i-custom_badge-check': 'fa-light fa-badge-check'
+        'i-custom_arrow-left': 'fas fa-arrow-left',
+        'i-custom_arrow-right': 'fas fa-arrow-right',
+        'i-custom_calendar-alt': 'fas fa-calendar-alt',
+        'i-custom_phone': 'fas fa-phone',
+        'i-custom_house': 'fa-regular fa-house',
+        'i-custom_comment': 'fas fa-comment',
+        'i-custom_trophy': 'fas fa-trophy',
+        'i-custom_shield-virus': 'fas fa-light fa-shield-check',
+        'i-custom_badge-check': 'fas fa-light fa-badge-check'
     };
 
     $.each(iconMap, function (customClass, faIcon) {
-        $('.' + customClass).each(function () {
-            $(this).children('i').first().replaceWith('<i class="fas ' + faIcon + '"></i>');
+        // $(this).find('i').replaceWith('<i class="fas ' + faIcon + '"></i>');
+        $('.' + customClass + '').each(function () {
+            $(this).find('i.icon-500px').addClass(faIcon).removeClass('icon-500px');
             $(this).addClass('has-changed');
         });
     });

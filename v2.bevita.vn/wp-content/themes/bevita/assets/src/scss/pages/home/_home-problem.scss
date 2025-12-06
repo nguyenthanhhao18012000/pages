@@ -1,0 +1,237 @@
+/* ============================================
+   HOME — PROBLEM SECTION
+   ============================================ */
+.problem {
+    position: relative;
+    @include section-spacing; // padding 60 / 120
+
+    &__container-tabs {}
+
+    &__container-cta {
+        &>.col {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding-bottom: 0;
+
+            .button {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__container-tabs {}
+
+    &__container-cta {
+        &>.col {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding-bottom: 0;
+
+            .button {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    /* ======================
+       HEADING BLOCK
+    =======================*/
+    &__heading {
+        text-align: center;
+        // margin-bottom: $space-xl;
+
+        h2 {
+            // @extend .problem__title;
+        }
+
+        p {
+            // @extend .problem__subtitle;
+        }
+    }
+
+    // &__title {
+    //     font-size: 32px;
+    //     font-weight: 700;
+    //     margin-bottom: $space-sm;
+    // }
+
+    // &__subtitle {
+    //     color: #666;
+    //     font-size: 16px;
+    // }
+
+
+    /* ======================
+       CONTAINER (tabs + image grid)
+    =======================*/
+    &__container {
+        &>.col {
+            padding-bottom: 0;
+        }
+
+        .col-inner {}
+
+        /* LEFT = Tabs */
+        .tabbed-content {
+            overflow: hidden;
+            display: grid;
+
+            @include respond-min($bp-lg) {
+                grid-template-columns: 5fr 7fr;
+                gap: $gutter; // 24px
+
+                .nav-vertical+.tab-panels {
+                    border: unset;
+                }
+
+                .nav-vertical {
+                    width: unset;
+                }
+
+                .tab-panels {}
+            }
+
+            .nav-vertical {
+                padding-top: 48px;
+
+                &>li {
+                    position: relative;
+
+                    /* -----NORMAL STATE----- */
+                    >a {
+                        color: var(--Color-Gray-gray-500, #71717B);
+                        font-family: var(--Font-Inter, Inter);
+                        font-size: var(--Font-Size-21, 21px);
+                        font-weight: 400;
+                        line-height: 133.333%;
+                        display: flex;
+                        align-items: center;
+                        margin-left: -36px;
+
+                        /* transition mượt cho text */
+                        transition: margin-left .25s ease, transform .25s ease;
+
+                        /* icon mặc định ẩn */
+                        &::before {
+                            content: '';
+                            width: 24px;
+                            height: 24px;
+                            margin-right: 12px;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75' stroke='%2318181B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+                            opacity: 0;
+                            transform: translateX(-6px); // icon lùi trái 6px để slide in
+                            transition: opacity .25s ease, transform .25s ease; // CHỖ NÀY QUAN TRỌNG
+                        }
+                    }
+
+                    /* -----ACTIVE----- */
+                    &.active>a {
+                        color: var(--Color-Gray-gray-900, #18181B);
+                        margin-left: 0;
+
+                        &::before {
+                            opacity: 1; // icon fade in
+                            transform: translateX(0); // icon trượt vào
+                        }
+                    }
+                }
+
+                /* remove line between items */
+                &>li+li {
+                    border: none;
+                }
+            }
+
+            .tab-panels {
+                overflow: hidden;
+                border-radius: 12px;
+                padding: 12px;
+                background: var(--Background-bg-card01, #DDEFF0);
+                border: 1px solid;
+            }
+
+
+            .panel {}
+
+            .banner-grid-wrapper {
+                .img {
+                    overflow: hidden;
+                    border-radius: 12px;
+                }
+            }
+
+            .banner-grid {
+                margin-left: -6px;
+                margin-right: -6px;
+
+                &>.col {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    padding-bottom: 12px;
+
+                    @include respond-min($bp-lg) {
+
+                        &.large-8,
+                        &.large-4:last-of-type {
+                            padding-bottom: 0;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    /* ======================
+       TABS
+    =======================*/
+    &__tabs {
+        .nav {
+            list-style: none !important;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab {
+            padding: $space-sm 0;
+            cursor: pointer;
+
+            &.active {
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+        }
+    }
+
+
+    /* ======================
+       RIGHT IMAGES
+    =======================*/
+    &__gallery-wrapper {
+        width: 100%;
+    }
+
+    &__gallery {
+        display: grid;
+        gap: $gutter;
+
+        @media (min-width: $bp-lg) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+    }
+}

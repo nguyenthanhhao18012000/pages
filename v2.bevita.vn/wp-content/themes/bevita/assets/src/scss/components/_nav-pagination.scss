@@ -1,0 +1,18 @@
+.nav-pagination>li {
+    .page-number:not(.current):not(.next):not(.prev) {
+        border-color: transparent;
+    }
+}
+
+.nav-pagination>li>a,
+.nav-pagination>li>span {
+    border-radius: var(--Utilities-Border-Radius-8, 8px);
+    border: 1px solid var(--Color-Gray-gray-200, #E4E4E7);
+}
+
+.nav-pagination>li>.current,
+.nav-pagination>li>a:hover,
+.nav-pagination>li>span:hover {
+    background: var(--Color-Primary-primary-600, #00B1BD);
+    border: 1px solid var(--Color-Primary-primary-600, #00B1BD);
+}

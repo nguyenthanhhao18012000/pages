@@ -1,0 +1,12 @@
+.section__divider {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.divider__container {
+    &>.col {
+        padding-bottom: 0;
+
+        .is-divider {}
+    }
+}

@@ -1,0 +1,41 @@
+/* ============================================
+   HOME — HERO SECTION
+   ============================================ */
+
+.hero {
+    .hero__container {
+        @include respond-min($bp-lg) {
+            display: grid !important;
+            grid-template-columns: 8fr 4fr;
+            column-gap: $gutter;
+            padding-left: $col-padding;
+            padding-right: $col-padding;
+
+            >.col {
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+        }
+
+        @include respond-min($bp-xxl) {
+            grid-template-columns: $hero-col-1 $hero-col-2; // 888px – 448px
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .img {
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .img,
+    .img-inner {
+        height: 100%;
+    }
+}

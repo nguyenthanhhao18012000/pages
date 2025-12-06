@@ -1133,6 +1133,135 @@ img {
   .section-go_back_history .row .col {
     padding-bottom: 0; }
 
+.section-blog-title {
+  padding: 0 !important; }
+  .section-blog-title .row-title > .col {
+    padding-bottom: 0; }
+  .section-blog-title .row-title h2 {
+    color: var(--Color-Gray-gray-900, #18181B);
+    /* Bold/text-3xl */
+    font-family: var(--Font-Inter, Inter);
+    font-size: var(--Font-Size-24, 24px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    /* 133.333% */ }
+  .section-blog-title .row-title .section-title-container {
+    margin-bottom: 24px; }
+
+.menu-sidebar-blog {
+  border-radius: 12px;
+  background: var(--Background-bg-card01, #DDEFF0);
+  padding: 12px;
+  max-width: 300px; }
+  .menu-sidebar-blog .ux-menu-link {
+    margin-bottom: 8px; }
+    .menu-sidebar-blog .ux-menu-link:last-child {
+      margin-bottom: 0; }
+    .menu-sidebar-blog .ux-menu-link__link {
+      border-radius: 10px;
+      padding: 8px;
+      margin-bottom: 8px;
+      -webkit-transition: .2s all;
+      transition: .2s all; }
+      .menu-sidebar-blog .ux-menu-link__link:hover {
+        -webkit-transition: .2s all;
+        transition: .2s all;
+        background: var(--Color-White-white-100, #FFF); }
+    .menu-sidebar-blog .ux-menu-link--active .ux-menu-link__link {
+      -webkit-transition: .2s all;
+      transition: .2s all;
+      background: var(--Color-White-white-100, #FFF); }
+    .menu-sidebar-blog .ux-menu-link .ux-menu-link__icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+    .menu-sidebar-blog .ux-menu-link .ux-menu-link__text {
+      padding-left: 0;
+      color: var(--Color-Gray-gray-900, #18181B);
+      /* Normal/text-lg */
+      font-family: var(--Font-Inter, Inter);
+      font-size: var(--Font-Size-17, 17px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      /* 141.176% */ }
+
+.sidebar-right-blog .col {
+  max-width: 500px !important; }
+.sidebar-right-blog .img {
+  border-radius: 12px;
+  background: #FFF;
+  overflow: hidden; }
+
+.blog-archive > .row {
+  max-width: 1360px !important;
+  display: grid;
+  grid-template-columns: minmax(232px, 17.06%) 1fr minmax(353px, 25.96%);
+  gap: 24px; }
+  .blog-archive > .row > .col {
+    max-width: 100% !important;
+    -ms-flex-preferred-size: 100% !important;
+        flex-basis: 100% !important;
+    padding: 0; }
+.blog-archive .post-item.col > .col-inner {
+  border-radius: 0;
+  background: unset; }
+.blog-archive .box-vertical {
+  display: grid;
+  grid-template-columns: 33.01% 1fr;
+  gap: 12px;
+  --aspect-ratio: 240.00/192.22; }
+  .blog-archive .box-vertical .post-title a {
+    overflow: hidden;
+    color: var(--Color-Gray-gray-900, #18181B);
+    text-overflow: ellipsis;
+    /* Normal/text-xl */
+    font-family: var(--Font-Inter, Inter);
+    font-size: var(--Font-Size-19, 19px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    /* 136.842% */ }
+    .blog-archive .box-vertical .post-title a:hover {
+      color: var(--fs-experimental-link-color-hover); }
+  .blog-archive .box-vertical .from_the_blog_excerpt {
+    overflow: hidden;
+    color: var(--Color-Gray-gray-500, #71717B);
+    text-overflow: ellipsis;
+    /* Normal/text-md */
+    font-family: var(--Font-Inter, Inter);
+    font-size: var(--Font-Size-15, 15px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    /* 146.667% */ }
+  .blog-archive .box-vertical .box-text-inner {
+    display: grid;
+    gap: 12px; }
+  .blog-archive .box-vertical .box-image {
+    width: 100% !important;
+    aspect-ratio: var(--aspect-ratio); }
+    .blog-archive .box-vertical .box-image .image-cover {
+      width: 100%;
+      height: 100%; }
+      .blog-archive .box-vertical .box-image .image-cover img {
+        aspect-ratio: var(--aspect-ratio);
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: top center;
+           object-position: top center;
+        border-radius: 10px; }
+
 #footer {
   padding-top: 80px;
   border-top: 1px solid var(--Color-Gray-gray-200, #e4e4e7);
